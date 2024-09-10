@@ -11,8 +11,13 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class KafkaService {
 
-    @KafkaListener(topics = "consultationScheduledTopic")
-    public void consume(ConsultationEvent event){
-      log.info("Received notification for Consultation of patient - {} ", event);
-    }
+  @KafkaListener(topics = "consultationScheduledTopic")
+  public void scheduleConsulatation(ConsultationEvent event) {
+    log.info("Received notification for Consultation - {} ", event);
+  }
+
+  @KafkaListener(topics = "consultationConfirmedTopic")
+  public void confirmConsulation(ConsultationEvent event) {
+    log.info("Received notification for confirmed Consultation - {} ", event);
+  }
 }
