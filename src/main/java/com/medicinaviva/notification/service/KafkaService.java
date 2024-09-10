@@ -13,6 +13,6 @@ public class KafkaService {
 
     @KafkaListener(topics = "consultationScheduledTopic")
     public void consume(ConsultationEvent event){
-      log.info("Received notification for Consultation of patient - {} ", event.getPatientId());
+      log.info("Received notification for Consultation of patient - {} ", event);
     }
 }
